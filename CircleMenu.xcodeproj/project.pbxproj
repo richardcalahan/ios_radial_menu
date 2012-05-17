@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		79A84F84156529AF00B0457E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A84F83156529AF00B0457E /* UIKit.framework */; };
+		79A84F86156529AF00B0457E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A84F85156529AF00B0457E /* Foundation.framework */; };
+		79A84F88156529AF00B0457E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A84F87156529AF00B0457E /* CoreGraphics.framework */; };
+		79A84F8E156529AF00B0457E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79A84F8C156529AF00B0457E /* InfoPlist.strings */; };
+		79A84F90156529AF00B0457E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A84F8F156529AF00B0457E /* main.m */; };
+		79A84F94156529AF00B0457E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A84F93156529AF00B0457E /* AppDelegate.m */; };
+		79A84F9C156529EE00B0457E /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A84F9B156529EE00B0457E /* Menu.m */; };
+		79A84F9F156529FC00B0457E /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A84F9E156529FC00B0457E /* MenuItem.m */; };
+		79A84FA215652A6D00B0457E /* bg-menuitem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79A84FA115652A6D00B0457E /* bg-menuitem@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		79A84F7F156529AE00B0457E /* CircleMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircleMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79A84F83156529AF00B0457E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		79A84F85156529AF00B0457E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		79A84F87156529AF00B0457E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		79A84F8B156529AF00B0457E /* CircleMenu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CircleMenu-Info.plist"; sourceTree = "<group>"; };
+		79A84F8D156529AF00B0457E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		79A84F8F156529AF00B0457E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79A84F91156529AF00B0457E /* CircleMenu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CircleMenu-Prefix.pch"; sourceTree = "<group>"; };
+		79A84F92156529AF00B0457E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		79A84F93156529AF00B0457E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		79A84F9A156529EE00B0457E /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		79A84F9B156529EE00B0457E /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
+		79A84F9D156529FC00B0457E /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		79A84F9E156529FC00B0457E /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		79A84FA115652A6D00B0457E /* bg-menuitem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-menuitem@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79A84F7C156529AE00B0457E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79A84F84156529AF00B0457E /* UIKit.framework in Frameworks */,
+				79A84F86156529AF00B0457E /* Foundation.framework in Frameworks */,
+				79A84F88156529AF00B0457E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		79A84F74156529AE00B0457E = {
+			isa = PBXGroup;
+			children = (
+				79A84F89156529AF00B0457E /* CircleMenu */,
+				79A84F82156529AF00B0457E /* Frameworks */,
+				79A84F80156529AE00B0457E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		79A84F80156529AE00B0457E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79A84F7F156529AE00B0457E /* CircleMenu.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79A84F82156529AF00B0457E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79A84F83156529AF00B0457E /* UIKit.framework */,
+				79A84F85156529AF00B0457E /* Foundation.framework */,
+				79A84F87156529AF00B0457E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79A84F89156529AF00B0457E /* CircleMenu */ = {
+			isa = PBXGroup;
+			children = (
+				79A84FA015652A5B00B0457E /* images */,
+				79A84F9D156529FC00B0457E /* MenuItem.h */,
+				79A84F9E156529FC00B0457E /* MenuItem.m */,
+				79A84F9A156529EE00B0457E /* Menu.h */,
+				79A84F9B156529EE00B0457E /* Menu.m */,
+				79A84F92156529AF00B0457E /* AppDelegate.h */,
+				79A84F93156529AF00B0457E /* AppDelegate.m */,
+				79A84F8A156529AF00B0457E /* Supporting Files */,
+			);
+			path = CircleMenu;
+			sourceTree = "<group>";
+		};
+		79A84F8A156529AF00B0457E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79A84F8B156529AF00B0457E /* CircleMenu-Info.plist */,
+				79A84F8C156529AF00B0457E /* InfoPlist.strings */,
+				79A84F8F156529AF00B0457E /* main.m */,
+				79A84F91156529AF00B0457E /* CircleMenu-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79A84FA015652A5B00B0457E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				79A84FA115652A6D00B0457E /* bg-menuitem@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79A84F7E156529AE00B0457E /* CircleMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79A84F97156529AF00B0457E /* Build configuration list for PBXNativeTarget "CircleMenu" */;
+			buildPhases = (
+				79A84F7B156529AE00B0457E /* Sources */,
+				79A84F7C156529AE00B0457E /* Frameworks */,
+				79A84F7D156529AE00B0457E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CircleMenu;
+			productName = CircleMenu;
+			productReference = 79A84F7F156529AE00B0457E /* CircleMenu.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79A84F76156529AE00B0457E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "All Day Everyday";
+			};
+			buildConfigurationList = 79A84F79156529AE00B0457E /* Build configuration list for PBXProject "CircleMenu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 79A84F74156529AE00B0457E;
+			productRefGroup = 79A84F80156529AE00B0457E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79A84F7E156529AE00B0457E /* CircleMenu */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79A84F7D156529AE00B0457E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79A84F8E156529AF00B0457E /* InfoPlist.strings in Resources */,
+				79A84FA215652A6D00B0457E /* bg-menuitem@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79A84F7B156529AE00B0457E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79A84F90156529AF00B0457E /* main.m in Sources */,
+				79A84F94156529AF00B0457E /* AppDelegate.m in Sources */,
+				79A84F9C156529EE00B0457E /* Menu.m in Sources */,
+				79A84F9F156529FC00B0457E /* MenuItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		79A84F8C156529AF00B0457E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79A84F8D156529AF00B0457E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79A84F95156529AF00B0457E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		79A84F96156529AF00B0457E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		79A84F98156529AF00B0457E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CircleMenu/CircleMenu-Prefix.pch";
+				INFOPLIST_FILE = "CircleMenu/CircleMenu-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		79A84F99156529AF00B0457E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CircleMenu/CircleMenu-Prefix.pch";
+				INFOPLIST_FILE = "CircleMenu/CircleMenu-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79A84F79156529AE00B0457E /* Build configuration list for PBXProject "CircleMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79A84F95156529AF00B0457E /* Debug */,
+				79A84F96156529AF00B0457E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79A84F97156529AF00B0457E /* Build configuration list for PBXNativeTarget "CircleMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79A84F98156529AF00B0457E /* Debug */,
+				79A84F99156529AF00B0457E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 79A84F76156529AE00B0457E /* Project object */;
+}
