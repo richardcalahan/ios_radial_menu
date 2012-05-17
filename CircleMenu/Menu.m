@@ -20,19 +20,19 @@ static CGFloat const MAX_RADIUS = 300.0;
 
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-      
-      // Set Center of Menu
-      CGFloat centerX = (self.frame.size.width / 2);
-      CGFloat centerY = (self.frame.size.height / 2);
-      self.center = CGPointMake(centerX, centerY);
-      
-      // Set Background Color
-      self.backgroundColor = [UIColor clearColor];
-      
-    }
-    return self;
+  self = [super initWithFrame:frame];
+  if (self) {
+    
+    // Set Center of Menu
+    CGFloat centerX = (self.frame.size.width / 2);
+    CGFloat centerY = (self.frame.size.height / 2);
+    self.center = CGPointMake(centerX, centerY);
+    
+    // Set Background Color
+    self.backgroundColor = [UIColor clearColor];
+    
+  }
+  return self;
 }
 
 - (void)pinchDidOccur:(UIPinchGestureRecognizer *)gesture {

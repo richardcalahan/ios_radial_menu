@@ -15,7 +15,6 @@
   if (self) {
     self.image = image;
     self.bounds = CGRectMake(0, 0, self.image.size.width, self.image.size.height);
-    NSLog(@"image init with frame %f %f", self.frame.origin.x, self.frame.origin.y);
   }
   return self;
 }

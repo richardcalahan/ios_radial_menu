@@ -15,7 +15,7 @@
 		79A84F94156529AF00B0457E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A84F93156529AF00B0457E /* AppDelegate.m */; };
 		79A84F9C156529EE00B0457E /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A84F9B156529EE00B0457E /* Menu.m */; };
 		79A84F9F156529FC00B0457E /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 79A84F9E156529FC00B0457E /* MenuItem.m */; };
-		79A84FA215652A6D00B0457E /* bg-menuitem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79A84FA115652A6D00B0457E /* bg-menuitem@2x.png */; };
+		79A84FA615652B5300B0457E /* bg-menuitem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79A84FA515652B5300B0457E /* bg-menuitem@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		79A84F9B156529EE00B0457E /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		79A84F9D156529FC00B0457E /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		79A84F9E156529FC00B0457E /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
-		79A84FA115652A6D00B0457E /* bg-menuitem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-menuitem@2x.png"; sourceTree = "<group>"; };
+		79A84FA515652B5300B0457E /* bg-menuitem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-menuitem@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 		79A84F89156529AF00B0457E /* CircleMenu */ = {
 			isa = PBXGroup;
 			children = (
-				79A84FA015652A5B00B0457E /* images */,
+				79A84FA415652B5300B0457E /* images */,
 				79A84F9D156529FC00B0457E /* MenuItem.h */,
 				79A84F9E156529FC00B0457E /* MenuItem.m */,
 				79A84F9A156529EE00B0457E /* Menu.h */,
@@ -103,12 +103,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		79A84FA015652A5B00B0457E /* images */ = {
+		79A84FA415652B5300B0457E /* images */ = {
 			isa = PBXGroup;
 			children = (
-				79A84FA115652A6D00B0457E /* bg-menuitem@2x.png */,
+				79A84FA515652B5300B0457E /* bg-menuitem@2x.png */,
 			);
-			name = images;
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79A84F8E156529AF00B0457E /* InfoPlist.strings in Resources */,
-				79A84FA215652A6D00B0457E /* bg-menuitem@2x.png in Resources */,
+				79A84FA615652B5300B0457E /* bg-menuitem@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
