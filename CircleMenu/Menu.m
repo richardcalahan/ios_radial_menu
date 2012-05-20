@@ -148,7 +148,7 @@ static CGFloat const MAX_RADIUS = 300.0;
     CGPathAddLineToPoint(path, NULL, item.outerBounce.x, item.outerBounce.y);
     CGPathAddLineToPoint(path, NULL, item.startPoint.x, item.startPoint.y);
     positionAnimation.path = path;
-    [item.layer addAnimation:positionAnimation forKey:@"showMenu"];
+    [item.layer addAnimation:positionAnimation forKey:@"hideMenu"];
     [item setCenter:item.startPoint];
   }
 }
