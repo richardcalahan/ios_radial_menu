@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class MenuItem;
+
+@protocol MenuItemDelegate <NSObject>
+- (void) menuItemDidSelect:(MenuItem *)item withEvent:(UIEvent *)event;
+@end
+
 @interface MenuItem : UIImageView
+
+@property (nonatomic) CGPoint startPoint;
+@property (nonatomic) CGPoint endPoint;
+@property (nonatomic) CGPoint innerBounce;
+@property (nonatomic) CGPoint outerBounce;
+
+@property (nonatomic, weak) id <MenuItemDelegate> delegate;
 
 @end

@@ -27,9 +27,8 @@
   MenuItem *item3 = [[MenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-menuitem"]];
   MenuItem *item4 = [[MenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-menuitem"]];
   MenuItem *item5 = [[MenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-menuitem"]];
-  MenuItem *item6 = [[MenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-menuitem"]];
   
-  NSArray *items = [NSArray arrayWithObjects:item1,item2,item3,item4,item5,item6, nil];
+  NSArray *items = [NSArray arrayWithObjects:item1,item2,item3,item4,item5, nil];
   menu.items = items;
   
   // Add Pinch Gesture

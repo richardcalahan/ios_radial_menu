@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuItem.h"
 
-@interface Menu : UIView
+@interface Menu : UIView <MenuItemDelegate>
 
 @property (nonatomic) CGFloat radius;
+@property (nonatomic) CGFloat minRadius;
+@property (nonatomic) CGFloat maxRadius;
 @property (nonatomic, readwrite) CGPoint center;
 @property (strong, nonatomic) NSArray *items;
 
