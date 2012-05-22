@@ -31,9 +31,6 @@
   NSArray *items = [NSArray arrayWithObjects:item1,item2,item3,item4,item5, nil];
   menu.items = items;
   
-  // Add Pinch Gesture
-  UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:menu action:@selector(pinchDidOccur:)];
-  [menu addGestureRecognizer:pinch];
   [rootViewController.view addSubview:menu];
   self.window.backgroundColor = [UIColor whiteColor];
   [self.window makeKeyAndVisible];

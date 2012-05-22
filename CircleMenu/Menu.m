@@ -10,8 +10,9 @@
 #import "MenuItem.h"
 
 // Default config vars if not set
-static CGFloat const MIN_RADIUS = 80.0;
+static CGFloat const MIN_RADIUS = 50.0;
 static CGFloat const MAX_RADIUS = 300.0;
+static CGFloat const BOUNCE_DISTANCE = 20.0;
 
 @interface Menu()
 
@@ -22,11 +23,12 @@ static CGFloat const MAX_RADIUS = 300.0;
 
 @implementation Menu
 
+@synthesize radius = _radius;
 @synthesize minRadius = _minRadius;
 @synthesize maxRadius = _maxRadius;
-@synthesize radius = _radius;
-@synthesize center = _center;
+@synthesize bounceDistance = _bounceDistance;
 @synthesize items = _items;
+
 @synthesize menuOn = _menuOn;
 @synthesize initialRadius = _initialRadius;
 
@@ -34,17 +36,15 @@ static CGFloat const MAX_RADIUS = 300.0;
 {
   self = [super initWithFrame:frame];
   if (self) {
-    
-    // Set Center of Menu
-    CGFloat centerX = (self.frame.size.width / 2);
-    CGFloat centerY = (self.frame.size.height / 2);
-    self.center = CGPointMake(centerX, centerY);
-    
-    // Set Background Color
+    self.userInteractionEnabled = YES;
     self.backgroundColor = [UIColor clearColor];
-    
   }
   return self;
+}
+
+- (void) layoutSubviews {
+  UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchDidOccur:)];
+  [self.window addGestureRecognizer:pinch];
 }
 
 - (void)pinchDidOccur:(UIPinchGestureRecognizer *)gesture {
@@ -54,16 +54,12 @@ static CGFloat const MAX_RADIUS = 300.0;
       break;
     case UIGestureRecognizerStateChanged:
       self.radius *= gesture.scale;
+      if (self.menuOn) [self dragMenuWithScale:gesture.scale];
       gesture.scale = 1;
       break;
     case UIGestureRecognizerStateEnded:
       if (self.radius < self.initialRadius) [self showMenu];
       else if (self.radius > self.initialRadius) [self hideMenu];
-//      for (MenuItem *item in self.items) {
-//        CGPoint origin = [self makeItemCoordinates:item];
-//        CGRect frame = CGRectMake(origin.x, origin.y, item.frame.size.width, item.frame.size.height);
-//        [item setFrame:frame];
-//      }
       break;
     case UIGestureRecognizerStateFailed:
     case UIGestureRecognizerStatePossible:
@@ -87,8 +83,13 @@ static CGFloat const MAX_RADIUS = 300.0;
   return _minRadius;
 }
 
+- (CGFloat) bounceDistance {
+  if (!_bounceDistance) _bounceDistance = BOUNCE_DISTANCE;
+  return _bounceDistance;
+}
+
 - (void) setRadius:(CGFloat)radius {
-  if (radius > self.maxRadius || radius < self.minRadius) return;
+  if (radius > self.maxRadius || radius < 0) return;
   _radius = radius;
 }
 
@@ -107,8 +108,8 @@ static CGFloat const MAX_RADIUS = 300.0;
     for (MenuItem *item in _items) {
       CGPoint startPoint = [self makeItemCoordinates:item forRadius:self.maxRadius];
       CGPoint endPoint = [self makeItemCoordinates:item forRadius:self.minRadius];
-      CGPoint innerBounce = [self makeItemCoordinates:item forRadius:self.minRadius - 20];
-      CGPoint outerBounce = [self makeItemCoordinates:item forRadius:self.minRadius + 20];
+      CGPoint innerBounce = [self makeItemCoordinates:item forRadius:self.minRadius - self.bounceDistance];
+      CGPoint outerBounce = [self makeItemCoordinates:item forRadius:self.minRadius + self.bounceDistance];
       item.startPoint = startPoint;
       item.endPoint = endPoint;
       item.innerBounce = innerBounce;
@@ -119,38 +120,61 @@ static CGFloat const MAX_RADIUS = 300.0;
   }
 }
 
-- (void) menuItemDidSelect:(MenuItem *)item withEvent:(UIEvent *)event {
-  NSLog(@"indexOf: %i", [self.items indexOfObject:item]);
+- (void) dragMenuWithScale:(CGFloat)scale {
+  for (MenuItem *item in self.items) {
+    CGPoint origin = [self makeItemCoordinates:item forRadius:self.radius];
+    item.center = origin;
+  }
 }
 
 - (void) showMenu {
   for (MenuItem *item in self.items) {
-    CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    positionAnimation.duration = .3f;
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, item.center.x, item.center.y);
-    CGPathAddLineToPoint(path, NULL, item.innerBounce.x, item.innerBounce.y);
-    CGPathAddLineToPoint(path, NULL, item.outerBounce.x, item.outerBounce.y);
-    CGPathAddLineToPoint(path, NULL, item.endPoint.x, item.endPoint.y);
-    positionAnimation.path = path;
-    [item.layer addAnimation:positionAnimation forKey:@"showMenu"];
-    [item setCenter:item.endPoint];
+    float i = [self.items indexOfObject:item];
+    SEL selector = @selector(showItem:);
+    NSMethodSignature *signature = [[self class] instanceMethodSignatureForSelector:selector];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    [invocation setSelector:selector];
+    [invocation setTarget:self];
+    [invocation setArgument:(MenuItem **)&item atIndex:2];
+    [NSTimer scheduledTimerWithTimeInterval:i*.03 invocation:invocation repeats:NO];
   }
+  self.radius = self.minRadius;
+  [self setMenuOn:YES];
+}
+
+- (void) showItem:(MenuItem *)item {
+  CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+  positionAnimation.duration = .25f;
+  CGMutablePathRef path = CGPathCreateMutable();
+  CGPathMoveToPoint(path, NULL, item.center.x, item.center.y);
+  CGPathAddLineToPoint(path, NULL, item.innerBounce.x, item.innerBounce.y);
+  CGPathAddLineToPoint(path, NULL, item.outerBounce.x, item.outerBounce.y);
+  CGPathAddLineToPoint(path, NULL, item.endPoint.x, item.endPoint.y);
+  positionAnimation.path = path;
+  [item.layer addAnimation:positionAnimation forKey:@"showMenu"];
+  [item setCenter:item.endPoint];
 }
 
 - (void) hideMenu {
-  for (MenuItem *item in self.items) {
-    CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    positionAnimation.duration = .3f;
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, item.center.x, item.center.y);
-    CGPathAddLineToPoint(path, NULL, item.innerBounce.x, item.innerBounce.y);
-    CGPathAddLineToPoint(path, NULL, item.outerBounce.x, item.outerBounce.y);
-    CGPathAddLineToPoint(path, NULL, item.startPoint.x, item.startPoint.y);
-    positionAnimation.path = path;
-    [item.layer addAnimation:positionAnimation forKey:@"hideMenu"];
-    [item setCenter:item.startPoint];
-  }
+  for (MenuItem *item in self.items) [self hideItem:item];
+  self.radius = self.maxRadius;
+  [self setMenuOn:NO];
+}
+
+- (void) hideItem:(MenuItem *)item {
+  CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+  positionAnimation.duration = .2f;
+  CGMutablePathRef path = CGPathCreateMutable();
+  CGPathMoveToPoint(path, NULL, item.center.x, item.center.y);
+  CGPathAddLineToPoint(path, NULL, item.startPoint.x, item.startPoint.y);
+  positionAnimation.path = path;
+  [item.layer addAnimation:positionAnimation forKey:@"hideMenu"];
+  [item setCenter:item.startPoint];
+}
+
+- (void) menuItemDidSelect:(MenuItem *)item withEvent:(UIEvent *)event {
+  NSLog(@"indexOf: %i", [self.items indexOfObject:item]);
+  [self hideMenu];
 }
 
 @end

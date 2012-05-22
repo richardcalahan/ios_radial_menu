@@ -14,7 +14,7 @@
 @property (nonatomic) CGFloat radius;
 @property (nonatomic) CGFloat minRadius;
 @property (nonatomic) CGFloat maxRadius;
-@property (nonatomic, readwrite) CGPoint center;
+@property (nonatomic) CGFloat bounceDistance;
 @property (strong, nonatomic) NSArray *items;
 
 @end

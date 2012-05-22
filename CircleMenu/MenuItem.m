@@ -32,7 +32,7 @@
   self.center = startPoint;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
   [self.delegate menuItemDidSelect:self withEvent:event];
 }
 
