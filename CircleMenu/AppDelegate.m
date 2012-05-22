@@ -30,11 +30,16 @@
   
   NSArray *items = [NSArray arrayWithObjects:item1,item2,item3,item4,item5, nil];
   menu.items = items;
+  menu.delegate = self;
   
   [rootViewController.view addSubview:menu];
   self.window.backgroundColor = [UIColor whiteColor];
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (void) menuItemDidSelectAtIndex:(int)index {
+  NSLog(@"Menu item did select at index: %i", index);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

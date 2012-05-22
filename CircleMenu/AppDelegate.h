@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Menu.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,MenuDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

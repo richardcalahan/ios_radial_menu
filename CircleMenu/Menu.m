@@ -28,6 +28,7 @@ static CGFloat const BOUNCE_DISTANCE = 20.0;
 @synthesize maxRadius = _maxRadius;
 @synthesize bounceDistance = _bounceDistance;
 @synthesize items = _items;
+@synthesize delegate = _delegate;
 
 @synthesize menuOn = _menuOn;
 @synthesize initialRadius = _initialRadius;
@@ -173,7 +174,7 @@ static CGFloat const BOUNCE_DISTANCE = 20.0;
 }
 
 - (void) menuItemDidSelect:(MenuItem *)item withEvent:(UIEvent *)event {
-  NSLog(@"indexOf: %i", [self.items indexOfObject:item]);
+  [self.delegate menuItemDidSelectAtIndex:[self.items indexOfObject:item]];
   [self hideMenu];
 }
 
